@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link href="hover.css" rel="stylesheet" media="all">
+
+    <title>Contact Us</title>
+    <style>
+        /*배경색 및 기본 설정*/
+        html, body {
+            background-color: black;
+            padding: 0;
+            margin: 0;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            color: white;
+            position: relative;
+        }
+
+        /*로고 이미지 사이즈 수정*/
+        .logo img {
+            width: 3vw;
+            height: auto;
+        }
+
+        .menu-container {
+            position: relative;
+        }
+
+        .menu-icon {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-icon .bar {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 4px 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav li {
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+
+            font-size: 18px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #menu {
+            position: absolute;
+            top: 50px;
+            right: 0;
+            background-color: #333;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            padding: 10px;
+            z-index: 1;
+        }
+
+
+        /*메인 이미지 및 글자 위치 설정*/
+        .main_content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        /*메인 이미지 크기 설정*/
+        .main_content img{
+            width: 50%;
+            max-width: 100%;
+            height: auto;
+        }
+
+        /*메인 글자 위치 설정*/
+        .welcoming_words {
+            width: 70%;
+            margin-right: 5%;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /*제목*/
+        .welcoming_words h1{
+            /*윈도우 크기에 따라 바뀌도록 설정. 1rem은 최소 크기*/
+            font-size: calc(6vw + 1rem);
+            box-sizing: border-box;
+            margin: 0;
+            color: white;
+        }
+
+        /*부제목*/
+        .welcoming_words h2 {
+            color: #E4DDC0;
+            margin: 0;
+            /*윈도우 크기에 따라 바뀌도록 설정. 1rem은 최소 크기*/
+            font-size: calc(0.6vw + 1rem);
+            box-sizing: border-box;
+        }
+
+        /*이메일 및 인스타 로고 이미지 위치*/
+        .icon{
+            display: flex;
+            align-items: center;
+            margin: 1vh;
+        }
+
+        /*이메일 및 인스타 로고 이미지*/
+        .icon img {
+            width: 3%;
+            max-width: 100%;
+            height: auto;
+
+            /*이미지와 간격 띄우기*/
+            margin-right: 1%;
+        }
+
+
+        /*이메일 주소 및 인스타 글자*/
+        .icon p{
+            color: #D496A7;
+            margin: 0;
+        }
+
+        /*"자주 물어보는 질문" 문구 스타일*/
+        .faq h1{
+            margin-left: 5%;
+            color: white;
+        }
+
+        /*swiper 설정*/
+        .swiper{
+            width: 100%;
+        }
+
+        /*slide 수정*/
+        .swiper-slide {
+            background-color: #191919;
+            /*질문 글자 설정*/
+            h1 {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #E4DDC0;
+                margin: 0;
+                height: 6vw;
+                font-size: 1.5vw;
+            }
+            /*대답 글자 설정*/
+            p{
+                padding: 1vw;
+                color: white;
+                margin: 0;
+                display: none;
+                font-size: 1vw;
+                height: 6vw;
+            }
+        }
+        /*hover 했을때 나오는 효과 설정*/
+        .swiper-slide:hover{
+            /*질문 사라짐*/
+            h1{
+                display: none;
+            }
+            /*대답 나타남*/
+            p{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+        /*네비게이션 설정 (현재 비활성화)*/
+        /*.swiper-button-next, .swiper-button-prev{*/
+        /*    color: white;*/
+        /*}*/
+
+
+    </style>
+</head>
+<body>
+<header>
+    <div class="logo">
+        <img src="logo.jpg" alt="Logo">
+    </div>
+    <div class="menu-container">
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <nav id="menu" class="hidden">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#members">Members</a></li>
+                <li><a href="#contactUs">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById('menu');
+        if (menu.classList.contains('hidden')) {
+            menu.classList.remove('hidden');
+        } else {
+            menu.classList.add('hidden');
+        }
+    }
+</script>
+
+
+<section class="main_content">
+    <div class="welcoming_words">
+        <h1>Contact Us</h1>
+        <h2>We’re here to answer any questions you might have.</h2>
+        <h2>We look forward to hearing from you!</h2>
+        <div class="icon">
+            <img src="mail.png" alt="envelope icon">
+            <p>seesighttolight@gmail.com</p>
+        </div>
+        <div class="icon">
+            <img src="output-onlinepngtools.png" alt="instagram icon">
+            <p>@hgu_seesun</p>
+        </div>
+    </div>
+    <img src="시선 벚꽃.jpeg" alt="시선 벚꽃 사진">
+</section>
+
+<section class="faq">
+    <h1>자주 물어보는 질문</h1>
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <!-- 슬라이드 -->
+            <div class="swiper-slide">
+                <h1>Q. 가입 조건이 있나요?</h1>
+                <p>A. 과에 상관 없이 소외된 이웃을 돕고자 하는 마음만 있으면 환영입니다.</p>
+            </div>
+            <div class="swiper-slide hvr-grow">
+                <h1>Q. 필수학기는 몇학기인가요?</h1>
+                <p>A. 필수학기는 2학기로 방학에 프로젝트 합숙을 진행해야합니다.</p>
+            </div>
+            <div class="swiper-slide hvr-grow">
+                <h1>Q. 정모는 언제하나요?</h1>
+                <p>A. 추후공지</p>
+            </div>
+            <div class="swiper-slide hvr-grow">
+                <h1>Q. 새내기도 들어갈 수 있나요?</h1>
+                <p>A. 네, 소외된 이웃을 섬겨줄 한동인이면 누구나 참여할 수 있습니다.</p>
+            </div>
+            <div class="swiper-slide hvr-grow">
+                <h1>Q. 주로 어떤 프로젝트를 진행하나요?</h1>
+                <p>A. 프로젝트는 매 학기마다 다수결로 학회원들이 결정하며, 여태까지 진행한 프로젝트는 아래에서 확인 가능합니다.</p>
+            </div>
+            <div class="swiper-slide hvr-grow">
+                <h1>Q. 학기와 방학중에 하는 활동이 다른가요?</h1>
+                <p>A. 네, 학기중에는 토이 프로젝트와 방학때 진행할 프로젝트 구성 및 계획을 합니다. 방학에는 프로젝트에만 매진합니다.</p>
+            </div>
+            <div class="swiper-slide hvr-grow">
+                <h1>Q. 프로젝트는 대면으로 하나요?</h1>
+                <p>A. 네, 프로젝트는 대면으로 진행됩니다. </p>
+            </div>
+        </div>
+
+<!-- 네비게이션 버튼 -->
+<!-- <%--        <div class="swiper-button-prev"></div>--%>
+<%--        <div class="swiper-button-next"></div>--%> -->
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        const swiper = new Swiper('.swiper', {
+            centeredSlides: true,
+            spaceBetween:30,
+            //한 화면에 표시되는 슬라이드 수(가운데 3개, 양옆 0.5개)
+            slidesPerView:4,
+            //목록 가로로 정렬
+            direction: 'horizontal',
+            //목록이 끝나면 처음으로 돌아옴
+            loop: true,
+            //마우스 스크롤 활성화
+            mousewheel : true,
+            // // 네비게이션 바 활성화
+            // navigation: {
+            //     nextEl: '.swiper-button-next',
+            //     prevEl: '.swiper-button-prev',
+            // },
+        });
+    </script>
+</section>
+
+</body>
+</html>
