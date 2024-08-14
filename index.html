@@ -110,8 +110,7 @@ s
 
         /*제목*/
         .welcoming_words h1{
-            /*윈도우 크기에 따라 바뀌도록 설정. 1rem은 최소 크기*/
-            font-size: calc(6vw);
+            font-size: 6vw;
             box-sizing: border-box;
             margin: 0;
             color: white;
@@ -121,8 +120,7 @@ s
         .welcoming_words h2 {
             color: #E4DDC0;
             margin: 0;
-            /*윈도우 크기에 따라 바뀌도록 설정. 1rem은 최소 크기*/
-            font-size: calc(1.9vw);
+            font-size: 1.9vw;
             box-sizing: border-box;
         }
 
@@ -185,6 +183,11 @@ s
             }
         }
 
+        .swiper-button-next, .swiper-button-prev{
+                display: none;
+                color: white;
+            }
+
 
         @media screen and (max-width:950px) {
             .swiper-slide{
@@ -200,7 +203,28 @@ s
         }
 
         @media screen and (max-width:520px) {
+
+            .welcoming_words{
+                text-align: center;
+                h1{
+                    font-size: 8vw;
+                }
+                h2{
+                    font-size: 4vw;
+                }
+                .icon {
+                    img{
+                        width:5%;
+                    }
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+
             .swiper-slide{
+                h1{
+                    font-size: 4.5vw;
+                }
                 p{
                     padding: 1vw;
                     color: white;
@@ -209,6 +233,11 @@ s
                     font-size: 3vw;
                     height: 6vw;
                 }
+            }
+
+            .swiper-button-next, .swiper-button-prev{
+                display: block;
+                color: white;
             }
         }
 
@@ -226,10 +255,7 @@ s
                 justify-content: center;
             }
         }
-        /*네비게이션 설정 (현재 비활성화)*/
-        /*.swiper-button-next, .swiper-button-prev{*/
-        /*    color: white;*/
-        /*}*/
+
 
 
     </style>
@@ -308,11 +334,11 @@ s
             </div>
             <div class="swiper-slide hvr-grow">
                 <h1>Q. 주로 어떤 프로젝트를 진행하나요?</h1>
-                <p>A. 프로젝트는 매 학기마다 다수결로 학회원들이 결정하며, 여태까지 진행한 프로젝트는 아래에서 확인 가능합니다.</p>
+                <p>A. 여태까지 진행한 프로젝트는 아래에서 확인 가능합니다.</p>
             </div>
             <div class="swiper-slide hvr-grow">
                 <h1>Q. 학기와 방학중에 하는 활동이 다른가요?</h1>
-                <p>A. 네, 학기중에는 토이 프로젝트와 방학때 진행할 프로젝트 구성 및 계획을 합니다. 방학에는 프로젝트에만 매진합니다.</p>
+                <p>A. 학기중에는 주로 스터디와 방학때 진행할 프로젝트를 구성합니다. <br>방학에는 본격적으로 프로젝트를 진행합니다.</p>
             </div>
             <div class="swiper-slide hvr-grow">
                 <h1>Q. 프로젝트는 대면으로 하나요?</h1>
@@ -321,8 +347,8 @@ s
         </div>
 
 <!-- 네비게이션 버튼 -->
-<!-- <%--        <div class="swiper-button-prev"></div>--%>
-<%--        <div class="swiper-button-next"></div>--%> -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
@@ -349,11 +375,10 @@ s
                 slidesPerView: 4,
             },
         },
-            // // 네비게이션 바 활성화
-            // navigation: {
-            //     nextEl: '.swiper-button-next',
-            //     prevEl: '.swiper-button-prev',
-            // },
+            navigation: {
+                 nextEl: '.swiper-button-next',
+                 prevEl: '.swiper-button-prev',
+             },
         });
     </script>
 </section>
