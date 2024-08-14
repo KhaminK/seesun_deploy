@@ -88,17 +88,18 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-wrap: wrap-reverse;
             padding: 0;
             margin: 0;
         }
 
         /*메인 이미지 크기 설정*/
         .main_content img{
-            width: 50%;
+            width: 49%;
             max-width: 100%;
             height: auto;
         }
-
+s
         /*메인 글자 위치 설정*/
         .welcoming_words {
             width: 70%;
@@ -252,7 +253,7 @@
             <p>@hgu_seesun</p>
         </div>
     </div>
-    <img src="cherryBlossoms.jpeg" alt="시선 벚꽃 사진">
+    <img src="시선 벚꽃.jpeg" alt="시선 벚꽃 사진">
 </section>
 
 <section class="faq">
@@ -308,6 +309,17 @@
             loop: true,
             //마우스 스크롤 활성화
             mousewheel : true,
+            breakpoints: {
+            0: {
+                slidesPerView: 1,
+            },
+            520: {
+                slidesPerView: 2,
+            },
+            950: {
+                slidesPerView: 4,
+            },
+        },
             // // 네비게이션 바 활성화
             // navigation: {
             //     nextEl: '.swiper-button-next',
